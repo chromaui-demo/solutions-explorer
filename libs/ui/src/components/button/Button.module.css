@@ -1,0 +1,99 @@
+.button {
+    font-family: var(--font-sans);
+    font-weight: var(--font-weight-semibold);
+    cursor: pointer;
+    border-radius: 0.5rem;
+    transition: all 0.2s;
+  }
+  
+  /* Color variants */
+  .cyan {
+    --button-bg: var(--color-cyan-500);
+    --button-bg-hover: var(--color-cyan-600);
+    --button-text: var(--color-base-white);
+  }
+  
+  .green {
+    --button-bg: var(--color-green-500);
+    --button-bg-hover: var(--color-green-600);
+    --button-text: var(--color-base-white);
+  }
+  
+  .yellow {
+    --button-bg: var(--color-yellow-500);
+    --button-bg-hover: var(--color-yellow-600);
+    --button-text: var(--color-base-white);
+  }
+  
+  .orange {
+    --button-bg: var(--color-orange-500);
+    --button-bg-hover: var(--color-orange-600);
+    --button-text: var(--color-base-white);
+  }
+  
+  .pink {
+    --button-bg: var(--color-pink-500);
+    --button-bg-hover: var(--color-pink-600);
+    --button-text: var(--color-base-white);
+  }
+  
+  .purple {
+    --button-bg: var(--color-purple-500);
+    --button-bg-hover: var(--color-purple-600);
+    --button-text: var(--color-base-white);
+  }
+  
+  /* Style variants */
+  .primary {
+    background-color: var(--button-bg, var(--color-blue-500));
+    color: var(--button-text, var(--color-base-white));
+    border: none;
+  }
+  
+  .primary:hover:not(.disabled) {
+    background-color: var(--button-bg-hover, var(--color-blue-600));
+  }
+  
+  .secondary {
+    background-color: transparent;
+    border: 2px solid var(--button-bg, var(--color-blue-500));
+    color: var(--button-bg, var(--color-blue-500));
+  }
+  
+  .secondary:hover:not(.disabled) {
+    background-color: var(--color-slate-200);
+  }
+  
+  .ghost {
+    background-color: transparent;
+    border: none;
+    color: var(--button-bg, var(--color-blue-500));
+    text-decoration: underline;
+  }
+  
+  .ghost:hover:not(.disabled) {
+    color: var(--button-bg-hover, var(--color-blue-600));
+  }
+  
+  /* Sizes */
+  .small {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+  
+  .medium {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .large {
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+  }
+  
+  /* Disabled state */
+  .disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
