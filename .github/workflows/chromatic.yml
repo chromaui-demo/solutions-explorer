@@ -28,6 +28,5 @@ jobs:
         with:
           # 👇 Chromatic projectToken, refer to the manage page to obtain it.
           projectToken: ${{ secrets.CHROMATIC_LIBS_UI_TOKEN }}
-          storybookBaseDir: libs/ui
           # 👇 This makes sure Chromatic skips PR drafts (still in progress or not ready to review)
           skip: ${{ github.event.pull_request.draft == true }}
