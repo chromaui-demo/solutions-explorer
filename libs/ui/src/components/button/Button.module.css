@@ -42,6 +42,12 @@
     --button-bg-hover: var(--color-purple-600);
     --button-text: var(--color-base-white);
   }
+
+  .slate {
+    --button-bg: var(--color-slate-700);
+    --button-bg-hover: var(--color-slate-800);
+    --button-text: var(--color-base-white);
+  }
   
   /* Style variants */
   .primary {
@@ -68,7 +74,6 @@
     background-color: transparent;
     border: none;
     color: var(--button-bg, var(--color-blue-500));
-    text-decoration: underline;
   }
   
   .ghost:hover:not(.disabled) {

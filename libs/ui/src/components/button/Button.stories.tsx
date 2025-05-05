@@ -18,3 +18,12 @@ export const Default: Story = {
     children: "Button"
   }
 };
+
+export const Menu: Story = {
+  args: {
+    children: "Menu",
+    variant: "primary",
+    size: "small",
+    color: "green"
+  }
+};
