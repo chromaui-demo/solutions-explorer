@@ -5,7 +5,7 @@ import { motion, HTMLMotionProps } from 'framer-motion';
 export type ButtonProps = Omit<HTMLMotionProps<"button">, "ref"> & {
   variant?: 'primary' | 'secondary' | 'ghost';
   size?: 'small' | 'medium' | 'large';
-  color?: 'cyan' | 'green' | 'yellow' | 'orange' | 'pink' | 'purple';
+  color?: 'cyan' | 'green' | 'yellow' | 'orange' | 'pink' | 'purple' | 'slate';
   disabled?: boolean;
   loading?: boolean;
   children?: React.ReactNode;
