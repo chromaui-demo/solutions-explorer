@@ -10,14 +10,17 @@ jobs:
   chromatic-libs-ui:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           # 👇 Tells the checkout which commit hash to reference
           ref: ${{ github.event.pull_request.head.ref }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20.13.1
       # 👇 Install dependencies with the same package manager used in the project (replace it as needed), e.g. yarn, npm, pnpm
 	  - name: Install dependencies
-        run: npm install
+        run: npm ci
       # 👇 Adds Chromatic as a step in the workflow
       - name: Publish to Chromatic
         uses: chromaui/action@latest
