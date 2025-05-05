@@ -3,5 +3,6 @@
     "projectId": "Project:68193db6fdb2bd5956ae0e26",
     "onlyChanged": true,
     "autoAcceptChanges": "main",
-    "storybookBaseDir": "libs/ui"
+    "storybookBaseDir": "libs/ui",
+    "storybookConfigDir": "libs/ui/.storybook"
   }
