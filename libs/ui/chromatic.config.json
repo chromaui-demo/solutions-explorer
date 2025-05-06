@@ -4,5 +4,6 @@
     "onlyChanged": true,
     "autoAcceptChanges": "main",
     "storybookBaseDir": "libs/ui",
-    "storybookConfigDir": "libs/ui/.storybook"
+    "storybookConfigDir": "libs/ui/.storybook",
+    "storybookBuildDir": "libs/ui/storybook-build"
   }
