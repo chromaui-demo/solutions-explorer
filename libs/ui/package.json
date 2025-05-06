@@ -8,7 +8,7 @@
     "dev": "vite",
     "build": "vite build",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build --stats-json",
+    "build-storybook": "storybook build -o storybook-build --stats-json",
     "chromatic": "chromatic --exit-zero-on-changes --config-file 'chromatic.config.json'"
   },
   "dependencies": {
