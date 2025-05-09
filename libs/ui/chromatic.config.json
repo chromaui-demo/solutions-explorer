@@ -2,5 +2,8 @@
     "$schema": "https://www.chromatic.com/config-file.schema.json",
     "projectId": "Project:68193db6fdb2bd5956ae0e26",
     "onlyChanged": true,
-    "autoAcceptChanges": "main"
+    "autoAcceptChanges": "main",
+    "storybookBaseDir": "libs/ui",
+    "storybookConfigDir": "libs/ui/.storybook",
+    "storybookBuildDir": "libs/ui/storybook-build"
   }
