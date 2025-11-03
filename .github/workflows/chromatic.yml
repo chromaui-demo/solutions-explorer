@@ -25,8 +25,20 @@ jobs:
       - name: Build Storybook
         run: npm run build-storybook --workspace=libs/ui
 
-      - name: Output SHA
-        run: echo "Commit SHA is ${{ github.sha }}"
+      - name: Output git info
+        run: |
+          echo "Commit SHA is ${{ github.event.merge_group.head_sha || github.event.pull_request.head.sha || github.sha }}"
+          echo "Branch is ${{ github.head_ref || github.ref_name }}"
+          echo "Parent commits:"
+          git log -1 --pretty=%P HEAD
+          echo "Merge base with main:"
+          git merge-base origin/main HEAD || echo "Could not determine merge base"
+          if [ -n "${{ github.event.merge_group.base_sha }}" ]; then
+            echo "Merge queue base SHA: ${{ github.event.merge_group.base_sha }}"
+            echo "Merge queue head SHA: ${{ github.event.merge_group.head_sha }}"
+          fi
+          echo "Full git log for current commit:"
+          git log -1 --pretty=fuller HEAD
 
       - name: Publish to Chromatic
         uses: chromaui/action@latest
@@ -34,3 +46,7 @@ jobs:
           projectToken: ${{ secrets.CHROMATIC_LIBS_UI_TOKEN }}
           configFile: libs/ui/chromatic.config.json
           skip: ${{ github.event.pull_request.draft == true }}
+        env:
+          CHROMATIC_SHA: ${{ github.event.merge_group.head_sha || github.event.pull_request.head.sha || github.sha }}
+          CHROMATIC_BRANCH: ${{ github.head_ref || github.ref_name }}
+          CHROMATIC_SLUG: ${{ github.repository }}
