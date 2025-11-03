@@ -23,7 +23,7 @@ export const Menu: Story = {
   args: {
     children: "Menu",
     variant: "primary",
-    size: "medium",
+    size: "small",
     color: "green"
   }
 };
