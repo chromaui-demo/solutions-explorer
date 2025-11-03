@@ -25,8 +25,10 @@ jobs:
       - name: Build Storybook
         run: npm run build-storybook --workspace=libs/ui
 
-      - name: Output SHA
-        run: echo "Commit SHA is ${{ github.sha }}"
+      - name: Output git info
+        run: |
+          echo "Commit SHA is ${{ github.event.merge_group.head_sha || github.event.pull_request.head.sha || github.sha }}"
+          echo "Branch is ${{ github.head_ref || github.ref_name }}"
 
       - name: Publish to Chromatic
         uses: chromaui/action@latest
@@ -34,3 +36,7 @@ jobs:
           projectToken: ${{ secrets.CHROMATIC_LIBS_UI_TOKEN }}
           configFile: libs/ui/chromatic.config.json
           skip: ${{ github.event.pull_request.draft == true }}
+        env:
+          CHROMATIC_SHA: ${{ github.event.merge_group.head_sha || github.event.pull_request.head.sha || github.sha }}
+          CHROMATIC_BRANCH: ${{ github.head_ref || github.ref_name }}
+          CHROMATIC_SLUG: ${{ github.repository }}
