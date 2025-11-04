@@ -27,3 +27,12 @@ export const Menu: Story = {
     color: "green"
   }
 };
+
+export const MenuSmall: Story = {
+  args: {
+    children: "Menu",
+    variant: "primary",
+    size: "small",
+    color: "purple"
+  }
+};
