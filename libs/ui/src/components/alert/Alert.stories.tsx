@@ -73,7 +73,7 @@ export const Dismissible = {
         status="info"
         variant="secondary"
         title="Dismissible Alert"
-        message="This alert can be dismissed by clicking the close button."
+        message="This alert can be dismissed by clicking the close button..."
         onClose={() => setIsVisible(false)}
       />
     ) : null;
