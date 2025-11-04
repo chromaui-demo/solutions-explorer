@@ -27,7 +27,7 @@ export const Default: Story = {
       <div style={{ display: 'flex', flexDirection: 'column', gap: '2', paddingLeft: '2rem', paddingRight: '2rem' }}>
         <div id='drawer-header' className={styles['drawer-header']}>
           <h2>Drawer Header</h2>
-          <Button color='slate' variant='ghost' size='large' onClick={() => setIsOpen(false)}>
+          <Button color='purple' variant='ghost' size='large' onClick={() => setIsOpen(false)}>
             X
           </Button>
         </div>
