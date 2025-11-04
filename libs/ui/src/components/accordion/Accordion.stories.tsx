@@ -18,7 +18,7 @@ export const Default: Story = {
         Chromatic is a visual testing platform for Storybook.
       </AccordionItem>
       <AccordionItem title="What is Storybook?">
-        Storybook is an open source tool for building UI components in isolation.
+        Storybook is an open source tool for building UI components in isolation...
       </AccordionItem>
     </Accordion>
   ),
