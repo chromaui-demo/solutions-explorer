@@ -18,7 +18,7 @@ export const Default: Story = {
       { label: 'Delete', onClick: () => console.log('Delete') },
       { label: 'Share', onClick: () => console.log('Share') }
     ],
-    direction: 'bottom-left',
+    direction: 'bottom-right',
     button: {
       color: 'slate',
       size: 'large',
