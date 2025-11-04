@@ -20,7 +20,7 @@ export const Default: Story = {
     ],
     direction: 'bottom-left',
     button: {
-      color: 'slate',
+      color: 'purple',
       size: 'large',
       variant: 'ghost'
     }
