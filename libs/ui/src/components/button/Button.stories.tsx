@@ -24,6 +24,6 @@ export const Menu: Story = {
     children: "Menu",
     variant: "primary",
     size: "large",
-    color: "green"
+    color: "purple"
   }
 };
