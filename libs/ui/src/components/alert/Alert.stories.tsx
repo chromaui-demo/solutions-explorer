@@ -25,7 +25,7 @@ export const SuccessPrimary = {
     status: 'success',
     variant: 'primary',
     title: 'Success',
-    message: '201-B',
+    message: '201-D',
   },
 };
 
