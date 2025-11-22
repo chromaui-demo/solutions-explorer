@@ -25,18 +25,33 @@ jobs:
       - name: Build Storybook
         run: npm run build-storybook --workspace=libs/ui
 
-      - name: Output git info
+      - name: Output git and Chromatic info
         run: |
-          echo "Commit SHA is ${{ github.event.merge_group.head_sha || github.event.pull_request.head.sha || github.sha }}"
-          echo "Branch is ${{ github.head_ref || github.ref_name }}"
+          echo "=== Raw GitHub context ==="
+          echo "event_name:               ${{ github.event_name }}"
+          echo "ref:                      ${{ github.ref }}"
+          echo "sha:                      ${{ github.sha }}"
+          echo "head_ref:                 ${{ github.head_ref }}"
+          echo "pr.head.ref:              ${{ github.event.pull_request.head.ref }}"
+          echo "pr.head.sha:              ${{ github.event.pull_request.head.sha }}"
+          echo "merge_group.head_ref:     ${{ github.event.merge_group.head_ref }}"
+          echo "merge_group.head_sha:     ${{ github.event.merge_group.head_sha }}"
+          echo "merge_group.base_sha:     ${{ github.event.merge_group.base_sha }}"
+          echo "repository (slug):        ${{ github.repository }}"
+
+          echo ""
+          echo "=== Derived values we expect Chromatic to use ==="
+          echo "Chromatic SHA:            ${{ github.event.merge_group.head_sha || github.event.pull_request.head.sha || github.sha }}"
+          echo "Chromatic branch:         ${{ github.event.merge_group.head_ref || github.head_ref || github.ref_name }}"
+          echo "Chromatic slug:           ${{ github.repository }}"
+
+          echo ""
+          echo "=== Git ancestry debug ==="
           echo "Parent commits:"
-          git log -1 --pretty=%P HEAD
+          git log -1 --pretty=%P HEAD || echo "Could not read parents"
+
           echo "Merge base with main:"
           git merge-base origin/main HEAD || echo "Could not determine merge base"
-          if [ -n "${{ github.event.merge_group.base_sha }}" ]; then
-            echo "Merge queue base SHA: ${{ github.event.merge_group.base_sha }}"
-            echo "Merge queue head SHA: ${{ github.event.merge_group.head_sha }}"
-          fi
 
       - name: Publish to Chromatic
         uses: chromaui/action@latest
@@ -44,7 +59,3 @@ jobs:
           projectToken: ${{ secrets.CHROMATIC_LIBS_UI_TOKEN }}
           configFile: libs/ui/chromatic.config.json
           skip: ${{ github.event.pull_request.draft == true }}
-        env:
-          CHROMATIC_SHA: ${{ github.event.merge_group.head_sha || github.event.pull_request.head.sha || github.sha }}
-          CHROMATIC_BRANCH: ${{ github.head_ref || github.ref_name }}
-          CHROMATIC_SLUG: ${{ github.repository }}
