@@ -21,7 +21,7 @@ export const Default: Story = {
 
 export const Menu: Story = {
   args: {
-    children: "201",
+    children: "201-A",
     variant: "primary",
     size: "large",
     color: "green"
