@@ -25,7 +25,7 @@ export const SuccessPrimary = {
     status: 'success',
     variant: 'primary',
     title: 'Success',
-    message: 'Your changes have been saved successfully',
+    message: '201-B',
   },
 };
 
